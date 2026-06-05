@@ -1,0 +1,13 @@
+1. git init: creates a local Git repository and allows Git to track changes in the project.
+The Git workflow includes 3 areas: 
+- Working Directory: Files you are currently editing.
+- Staging Area: Files selected for the next commit.
+- Repository: Stores committed versions of the project.
+
+2.1 git add <file_name>: Add a specific modified file into Staging Area
+This means Git will include this file in the next commit.
+
+2.2 git add .: Add all changed file into Staging Area
+
+3. git commit -m "message": Creates a new commit in the Repository.
+This means Git create a new version of your code that can be reviewed.

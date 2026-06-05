@@ -1,0 +1,53 @@
+a. Create 3 files: file1, file2, file3 
+- Local: file1, file2, file3
+- Working Directory:
+- Staging:
+- Repository:
+
+b. Run: git init
+- Local: 
+- Working Directory: file1, file2, file3
+- Staging:
+- Repository:
+
+c. Run: git commit -m "init project"
+- Local: 
+- Working Directory: file1, file2, file3
+- Staging:
+- Repository:
+
+d. Run: git add file1
+- Local: 
+- Working Directory: file2, file3
+- Staging: file1
+- Repository:
+
+e. Run: git commit -m "add file"
+- Local: 
+- Working Directory: file2, file3
+- Staging:
+- Repository: file1
+
+f. Run: git add .
+- Local: 
+- Working Directory:
+- Staging: file2, file3
+- Repository: file1
+
+g. Run: git restore --staged file2
+- Local: 
+- Working Directory: file2
+- Staging: file3
+- Repository: file1
+
+h. Run: git commit -m "add all files"
+- Local: 
+- Working Directory: file2
+- Staging: 
+- Repository: file1, file3
+
+i. git reset HEAD~1
+- Local: 
+- Working Directory: file2, file3
+- Staging:
+- Repository: file1

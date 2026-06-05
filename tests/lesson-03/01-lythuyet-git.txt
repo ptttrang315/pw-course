@@ -1,0 +1,4 @@
+1. git commit --amend: use to update message of the latest commit in editor
+2. git commit --amend -m "<message>": use to update message of the latest commit from command line
+3. git restore --staged <file>: remove the added files (green) from Staging, back the file to Working Directory (red)
+4. git reset HEAD~1: delete the latest commit (on the top) and back all files in this commit into Working Directory
