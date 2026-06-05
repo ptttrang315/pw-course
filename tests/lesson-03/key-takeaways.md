@@ -215,17 +215,17 @@ Return
 }
 ```
 
-### Key
+### 1. Key
 
 `'my address 2'` is a key
 
-### Value
+### 2. Value
 
 `Long An` is a value
 
 Value can set as a string/ number/ boolean/ another object
 
-### Return value of an object
+### 3. Return value of an object
 
 ```jsx
 console.log(myInfo.name);
@@ -243,6 +243,51 @@ Anna
 Playwright
 Long An
 ```
+
+### 4. Object and Constant
+
+As we know, we get an error when trying to reassign a `const` variable.
+
+The same rule applies to objects: we cannot reassign the object itself.
+
+However, we can still update the object's properties.
+
+For example, we can update a key's value:
+
+```jsx
+const person = {
+  name: "meo",
+  age: 28
+};
+
+// Update a property
+person.age = 29;
+
+// Add a new property
+person.city = "HCM";
+
+// Delete a property
+delete person.age;
+```
+
+But reassigning the object will cause an error:
+
+```jsx
+
+const person = {
+
+  name: "Meo"
+
+};
+
+person = {
+
+  name: "John"
+
+}; // Error
+```
+
+**Note: Only the object reference is constant, not its properties.**
 
 ## Array
 
@@ -273,8 +318,27 @@ The order of array starts from 0
 
 ```jsx
 console.log(arr[0]);
+```
 
-return 2;
+Return
+
+``` 
+2
+```
+
+### 3. Add element into array
+
+```jsx
+const arr = [1, 2];
+arr.push(3);
+
+console.log(arr);
+```
+
+Return
+
+```
+[1, 2, 3]
 ```
 
 ## Function
