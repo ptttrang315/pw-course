@@ -209,7 +209,7 @@ In real life,
 
     #### 2 types:
 
-    #### 1. Absolute XPath
+    #### A. Absolute XPath
 
     Start `/` from `<html>` go down to the target element
 
@@ -217,21 +217,68 @@ In real life,
     /html/body/div/h1
     ```
 
-    #### 2. Relative XPath
+    #### B. Relative XPath
+
+    #### 1. Simple xpath
 
     Start `//` based on their properties
 
-
     `//nameTag[@property="value]`
-
 
     ```jsx
     //form[@id="registration"]
     ```
 
-    Get selector by tex
+    #### 2. Get an element by text
 
-    `//a[text() = ("<text>)"`
+    `//nameTag[text() = "<text>"]`
+
+    ```jsx
+    //a[text() = ("<text>)"`
+    ```
+
+    #### 3. Get element by contains()
+
+    `//nameTag[contains(text(), "<value>")]`
+
+    #### 4. Get the element have the same level
+
+    a. Go to the below element *`following-sibling::`*
+        
+    `//nameTag[predicate]/following-sibling::nametag[predicate]` 
+        
+    ```jsx
+    const price = await page
+        .locator("//div[text()='Product 1']/following-sibling::div[@class='product-price']")
+        .textContent();
+    
+    console.log(price);
+    ```
+    
+
+    b. Go to the below element **`preceding-sibling::`**
+
+    `//nameTag[predicate]/preceding-sibling::nametag[predicate]` 
+
+    ```jsx
+    //div[@class='product-price']/preceding-sibling::div
+    ```
+
+    #### 5. Get the element of its parent
+
+    Go to the parent element **`parent`**
+
+    `//nameTag[predicate]/parent::nametag[predicate]` 
+
+    ```jsx
+    //label[text()='Email']/parent::div
+    ```
+
+    #### 6. Get the element of its ancestor
+
+    Go to the parent element `ancestor`
+
+    `//nameTag[predicate]/ancestor::nametag[predicate]`
 
 ### CSS selector
 
@@ -244,7 +291,7 @@ In real life,
 - For only Playwright
 - Short-hand Syntax, not depend on DOM structure
 
-### Actions
+## Playwright actions
 #### 1. Input
 `fill` : same as pasting value into cell
 
@@ -277,3 +324,49 @@ await page.locator("//select[@id='country']").selectOption("Canada");
 await page.locator("//input[@id='profile']").setInputFiles("tests/test-data.txt");
 
 ```
+
+#### 5. hover()
+
+`hover()` 
+
+```jsx
+await page.locator("//input[@id='profile']").setInputFiles("tests/test-data.txt");
+
+```
+
+#### 6. handle dialog
+
+Must handle dialog before clicking button return dialog
+
+```jsx
+page.on('dialog', dialog => dialog.accept());
+
+```
+
+#### 7. handle toogle — click()/ check() with position
+
+```jsx
+    await page.locator('input#toggleOption').check({ 
+        force: true, 
+        position: { x: 0, y: 0 } 
+    });
+```
+
+#### 8. handle rating/ slider — boundingBox with position
+
+```jsx
+    const box = await page.locator("//div[@id='starRating']").boundingBox();
+
+    if(!box){
+        throw new Error('Star is not visible'); 
+    }
+
+    await page.mouse.click(
+        box.x + box.width * 0.92,
+        box.y + box.height / 2
+    );
+```
+
+`boundingBox`  return `x,y` of the box in the page
+
+also return `width` and `height`  based on them return the position to click on the box
