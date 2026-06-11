@@ -39,6 +39,15 @@ test('Add to-do item', async ({page}) => {
         await page.locator(`//button[@id="todo-${number}-delete"]`).click();
     }
 
+    // Verify to do item that have even number
+    const verifyTodoEvenNumber = (listTodo: string[]) => {
+            listToDo.filter(item => {
+            let number = Number(item.split(' ')[1]);
+            if((number % 2 === 0) && item.split(' ')[0] === 'Todo')
+                return true;
+        })
+    }
+
     // Go to page
     await page.goto('https://material.playwrightvn.com/');
     // Go to Bai hoc 3
@@ -46,7 +55,7 @@ test('Add to-do item', async ({page}) => {
 
     let listToDo: string[] = [];
     // Create 100 to-do items
-    for(let i = 1; i <= 100; i++){
+    for(let i = 1; i <= 10; i++){
         let item = await addAnItem(`Todo ${i}`);
         addToDoList(item, listToDo);
     }
@@ -58,4 +67,20 @@ test('Add to-do item', async ({page}) => {
         await deleteAnItem(number);
     }
 
+    // Get all texts of table in body
+    const todoTexts = await page.locator('//ul[@id="task-list"]/li/span').allTextContents();
+    console.log(todoTexts);
+    // Verify the list of to do only contains even number
+    verifyTodoEvenNumber(todoTexts);
+
+    // Verify array contains the expected/ unexpected element 
+    expect(todoTexts).toContain('Todo 2'); 
+    expect(todoTexts).not.toContain('Todo 1'); 
+    
+    // Verify by Playwright kw
+    expect(page.locator('//ul[@id="task-list"]/li/span')).toHaveText(['Todo 2', 'Todo 4', 'Todo 6', 'Todo 8', 'Todo 10'])
+    
+    // Count the number of rows of table
+    let totalItems = await page.locator('ul#task-list li').count();
+    console.log(totalItems);
 });

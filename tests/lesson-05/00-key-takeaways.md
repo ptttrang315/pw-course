@@ -370,3 +370,39 @@ page.on('dialog', dialog => dialog.accept());
 `boundingBox`  return `x,y` of the box in the page
 
 also return `width` and `height`  based on them return the position to click on the box
+
+#### 9. count the number of rows of table
+
+`count()`
+
+```jsx
+await page.locator('ul#task-list li').count();
+```
+
+#### 10. get all contexts of a table/ elememt
+
+`allTextContents()` 
+
+```jsx
+await page.locator('//ul[@id="task-list"]/li/span').allTextContents();
+
+```
+
+#### 11. expect - contain
+
+`toContain()` / `not.toContain()`
+
+```jsx
+expect(todoTexts).toContain('Todo 2'); 
+expect(todoTexts).not.toContain('Todo 21'); 
+```
+
+#### 12. expect - to have text
+
+`toHaveText()` 
+
+This function is able to check the array following the order
+
+```jsx
+expect(page.locator('//ul[@id="task-list"]/li/span')).toHaveText(['Todo 2', 'Todo 4', 'Todo 6', 'Todo 8', 'Todo 10'])
+```

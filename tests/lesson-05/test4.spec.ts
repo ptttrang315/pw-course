@@ -1,7 +1,7 @@
-import {test} from '@playwright/test';
+import {test, expect} from '@playwright/test';
 
 test('Add notes', async ({page}) => {
-const actions: actions[] = [
+const actions: Actions[] = [
     {
         action: 'click',
         description: 'Hàm click dùng để thực hiện click vào các phần tử trên trang web'
@@ -44,12 +44,12 @@ const actions: actions[] = [
     }
 ];
     //Declare actions
-    type actions ={
+    type Actions ={
         action: string;
         description: string
     }
     // Create notes
-    const createNotes = async (actions: actions[]) => {
+    const createNotes = async (actions: Actions[]) => {
         for(let item of actions ) {
             await page.locator('//input[@id="note-title"]').fill(item.action);
             await page.locator('//textarea[@id="note-content"]').fill(item.description);
@@ -71,8 +71,19 @@ const actions: actions[] = [
     // Create notes
     await createNotes(actions);
 
+    //get all created notes
+    let allTextContents = await page.locator('//ul[@id="notes-list"]/li/div').allTextContents();
+    console.log(allTextContents);
+
     // Search notes
-    await searchNotes('một hoặc nhiều');
-    
+    let searchText = 'Hàm';
+    await searchNotes(searchText);
+
+    // Get all the notes of table after search
+    let searchContext = await page.locator('//ul[@id="notes-list"]/li/div').allTextContents();
+    console.log(searchContext);
+
+    let todoListSearch = searchContext.filter(ele => ele.includes(searchText));
+    console.log(todoListSearch);
 }
 )
