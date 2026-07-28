@@ -1,0 +1,100 @@
+preceding
+
+1. XPath: //div[@id='current1']/preceding::div
+
+HTML:
+
+<div id="preceding1-1">Nội dung trước 1-1</div>
+<div id="preceding1-2">Nội dung trước 1-2</div>
+<div id="wrapper1">
+    <div id="current1">Nội dung hiện tại 1</div>
+    <div id="sibling1-1">Anh chị em sau 1-1</div>
+</div>
+
+Result:
+<div id="preceding1-1">Nội dung trước 1-1</div>
+<div id="preceding1-2">Nội dung trước 1-2</div>
+
+
+==============================================
+2. XPath: //span[@id='current2']/preceding::div
+
+HTML:
+
+<div id="preceding2-1">Nội dung trước 2-1</div>
+<div id="preceding2-2">Nội dung trước 2-2</div>
+<div id="wrapper2">
+    <span id="current2">Nội dung hiện tại 2</span>
+    <div id="sibling2-1">Anh chị em sau 2-1</div>
+</div>
+
+Result:
+<div id="preceding2-1">Nội dung trước 2-1</div>
+<div id="preceding2-2">Nội dung trước 2-2</div>
+
+==============================================
+3. XPath: //p[@id='current3']/preceding::span
+
+HTML:
+
+<span id="preceding3-1">Nội dung trước 3-1</span>
+<span id="preceding3-2">Nội dung trước 3-2</span>
+<div id="wrapper3">
+    <p id="current3">Nội dung hiện tại 3</p>
+    <span id="sibling3-1">Anh chị em sau 3-1</span>
+</div>
+
+Result:
+<span id="preceding3-1">Nội dung trước 3-1</span>
+<span id="preceding3-2">Nội dung trước 3-2</span>
+
+==============================================
+preceding-sibling
+
+1. XPath: //div[@id='current1']/preceding-sibling::div
+
+HTML:
+
+<div id="wrapper1">
+    <div id="sibling1-1">Anh chị em trước 1-1</div>
+    <div id="sibling1-2">Anh chị em trước 1-2</div>
+    <div id="current1">Nội dung hiện tại 1</div>
+    <div id="sibling1-3">Anh chị em sau 1-1</div>
+</div>
+
+Result:
+<div id="sibling1-1">Anh chị em trước 1-1</div>
+<div id="sibling1-2">Anh chị em trước 1-2</div>
+
+==============================================
+2. XPath: //span[@id='current2']/preceding-sibling::span
+
+HTML:
+
+<div id="wrapper2">
+    <span id="sibling2-1">Anh chị em trước 2-1</span>
+    <span id="sibling2-2">Anh chị em trước 2-2</span>
+    <span id="current2">Nội dung hiện tại 2</span>
+    <span id="sibling2-3">Anh chị em sau 2-1</span>
+</div>
+
+Result:
+<span id="sibling2-1">Anh chị em trước 2-1</span>
+<span id="sibling2-2">Anh chị em trước 2-2</span>
+
+==============================================
+3. XPath: //p[@id='current3']/preceding-sibling::p
+
+HTML:
+
+<div id="wrapper3">
+    <p id="sibling3-1">Anh chị em trước 3-1</p>
+    <p id="sibling3-2">Anh chị em trước 3-2</p>
+    <p id="current3">Nội dung hiện tại 3</p>
+    <p id="sibling3-3">Anh chị em sau 3-1</p>
+</div>
+
+Result:
+<p id="sibling3-1">Anh chị em trước 3-1</p>
+<p id="sibling3-2">Anh chị em trước 3-2</p>
+

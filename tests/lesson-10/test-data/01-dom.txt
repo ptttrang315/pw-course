@@ -1,0 +1,35 @@
+1. DOM basic structure of a web includes:
+<html>
+<head>
+<body>
+<div>
+<span>
+<header>
+<footer>
+<nav>
+<section>
+
+2. html structure of a table
+<table>
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Value 1</td>
+            <td>Value 2</td>
+            <td>Value 3</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Last Row 1</td>
+            <td>Last Row 2</td>
+            <td>Last Row 3</td>                
+        </tr>
+    </tfoot>
+</table>

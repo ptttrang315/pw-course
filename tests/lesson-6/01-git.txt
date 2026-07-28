@@ -1,0 +1,20 @@
+a. git clone <url>
+-- Clone a remote repository to your local machine
+
+b. git branch <branch_name>
+-- Create a new branch named <branch_name>
+-- Stay on the current branch
+
+c. git checkout <branch_name>
+-- Switch to <branch_name>
+
+d. git checkout -b <branch_name>
+-- Create a new branch and also switch into new created branch
+
+e. git pull origin master
+-- Get and merge the latest changes from the remote repository "origin" and branch "master"
+into the current local branch
+Ex: 
+Current local branch: personal/login
+Remote branch: origin/master
+-- Get latest code from origin/master and merge into current local branch personal/login

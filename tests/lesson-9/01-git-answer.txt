@@ -1,0 +1,30 @@
+a. Giải thích các lệnh
+    1. git rebase main:
+    Dùng để cập nhật code mới nhất từ main lên branch hiện tại
+    => Tránh tạo những commit không cần thiết
+
+    2. git merge feature/A
+    Dùng để lấy commit ở nhánh feature/A vào nhánh đang làm việc
+
+b. Giải thích merge strategy
+    1. fast-forward
+    - Main chưa có commit mới từ thời điểm tạo feature branch từ Main
+    - Trước khi merge có thể hiểu main là phiên bản cũ hơn của feature
+    - Sau khi merge commit của feature branch vào main sẽ không tạo merge commit (không cần thiết)
+    - Sau merge, trên main:
+        + Có tất cả commits trước khi tách branch
+        + Có thêm commits từ feature branch
+    - Terminal hiện Fast-forward 
+
+    2. three way merge
+    - Main và feature branch đều có commit sau khi tách branch
+    - Commit gần nhất của main không có trên feature branch và ngược lại
+    - Git kết hợp thay đổi 
+        + Commits sinh ra trên main sau khi tách branch feature
+        + Commits mới trên feature
+    - Git tạo thêm 1 merge commit mới để ghi nhận việc hợp nhất
+    - Sau merge, trên main:
+        + Có tất cả commits của nó
+        + Có commits sinh ra từ khi tách branch
+        + Có commits từ feature branch
+        + Có thêm 1 merge commit

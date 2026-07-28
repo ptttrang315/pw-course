@@ -1,0 +1,98 @@
+following
+
+1. XPath: //div[@id='current1']/following::div
+
+HTML:
+
+<div id="wrapper1">
+    <div id="current1">Nội dung hiện tại 1</div>
+    <div id="sibling1-1">Anh chị em sau 1-1</div>
+</div>
+<div id="following1-1">Nội dung sau 1-1</div>
+<div id="following1-2">Nội dung sau 1-2</div>
+
+Result:
+    <div id="sibling1-1">Anh chị em sau 1-1</div>
+    <div id="following1-1">Nội dung sau 1-1</div>
+    <div id="following1-2">Nội dung sau 1-2</div>
+
+==============================================
+2. XPath: //span[@id='current2']/following::div
+
+HTML:
+
+<div id="wrapper2">
+    <span id="current2">Nội dung hiện tại 2</span>
+    <div id="sibling2-1">Anh chị em sau 2-1</div>
+</div>
+<div id="following2-1">Nội dung sau 2-1</div>
+<div id="following2-2">Nội dung sau 2-2</div>
+
+Result:
+    <div id="sibling2-1">Anh chị em sau 2-1</div>
+    <div id="following2-1">Nội dung sau 2-1</div>
+    <div id="following2-2">Nội dung sau 2-2</div>
+
+==============================================
+3. XPath: //p[@id='current3']/following::span
+
+HTML:
+
+<div id="wrapper3">
+    <p id="current3">Nội dung hiện tại 3</p>
+    <span id="sibling3-1">Anh chị em sau 3-1</span>
+</div>
+<span id="following3-1">Nội dung sau 3-1</span>
+<span id="following3-2">Nội dung sau 3-2</span>
+
+Result:
+    <span id="sibling3-1">Anh chị em sau 3-1</span>
+    <span id="following3-1">Nội dung sau 3-1</span>
+    <span id="following3-2">Nội dung sau 3-2</span>
+
+==============================================
+following-sibling
+
+1. XPath: //div[@id='current1']/following-sibling::div
+
+HTML:
+
+<div id="wrapper1">
+    <div id="current1">Nội dung hiện tại 1</div>
+    <div id="sibling1-1">Anh chị em sau 1-1</div>
+    <div id="sibling1-2">Anh chị em sau 1-2</div>
+</div>
+
+Result:
+    <div id="sibling1-1">Anh chị em sau 1-1</div>
+    <div id="sibling1-2">Anh chị em sau 1-2</div>
+
+==============================================
+2. XPath: //span[@id='current2']/following-sibling::span
+
+HTML:
+
+<div id="wrapper2">
+    <span id="current2">Nội dung hiện tại 2</span>
+    <span id="sibling2-1">Anh chị em sau 2-1</span>
+    <span id="sibling2-2">Anh chị em sau 2-2</span>
+</div>
+
+Result:
+    <span id="sibling2-1">Anh chị em sau 2-1</span>
+    <span id="sibling2-2">Anh chị em sau 2-2</span>
+
+==============================================
+3. XPath: //p[@id='current3']/following-sibling::p
+
+HTML:
+
+<div id="wrapper3">
+    <p id="current3">Nội dung hiện tại 3</p>
+    <p id="sibling3-1">Anh chị em sau 3-1</p>
+    <p id="sibling3-2">Anh chị em sau 3-2</p>
+</div>
+
+Result:
+    <p id="sibling3-1">Anh chị em sau 3-1</p>
+    <p id="sibling3-2">Anh chị em sau 3-2</p>

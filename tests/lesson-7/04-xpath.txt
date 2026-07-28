@@ -1,0 +1,96 @@
+descendant
+
+1. XPath: //div[@id='parent1']/descendant::div
+
+HTML:
+
+<div id="parent1">
+    <div id="child1">Nội dung 1</div>
+    <div id="child2">Nội dung 2</div>
+</div>
+
+Result:
+<div id="child1">Nội dung 1</div>
+<div id="child2">Nội dung 2</div>
+
+==============================================
+2. XPath: //div[@id='grandparent2']/descendant::span
+
+HTML:
+
+<div id="grandparent2">
+    <div id="parent2">
+        <span id="child2-1">Nội dung 2-1</span>
+        <span id="child2-2">Nội dung 2-2</span>
+    </div>
+</div>
+
+Result:
+<span id="child2-1">Nội dung 2-1</span>
+<span id="child2-2">Nội dung 2-2</span>
+
+==============================================
+3. XPath: //div[@id='grandparent3']/descendant::p
+
+HTML:
+
+<div id="grandparent3">
+    <div id="parent3">
+        <p id="child3-1">Nội dung 3-1</p>
+        <p id="child3-2">Nội dung 3-2</p>
+    </div>
+</div>
+
+Result:
+<p id="child3-1">Nội dung 3-1</p>
+<p id="child3-2">Nội dung 3-2</p>
+
+==============================================
+descendant-or-self
+
+1. XPath: //div[@id='parent1']/descendant-or-self::div
+
+HTML:
+
+<div id="parent1">
+    <div id="child1">Nội dung 1</div>
+    <div id="child2">Nội dung 2</div>
+</div>
+
+Result:
+<div id="parent1">
+<div id="child1">Nội dung 1</div>
+<div id="child2">Nội dung 2</div>
+
+==============================================
+2. XPath: //div[@id='grandparent2']/descendant-or-self::span
+
+HTML:
+
+<div id="grandparent2">
+    <div id="parent2">
+        <span id="child2-1">Nội dung 2-1</span>
+        <span id="child2-2">Nội dung 2-2</span>
+    </div>
+</div>
+
+Result:
+<span id="child2-1">Nội dung 2-1</span>
+<span id="child2-2">Nội dung 2-2</span>
+
+==============================================
+3. XPath: //div[@id='grandparent3']/descendant-or-self::p
+
+HTML:
+
+<div id="grandparent3">
+    <div id="parent3">
+        <p id="child3-1">Nội dung 3-1</p>
+        <p id="child3-2">Nội dung 3-2</p>
+    </div>
+</div>
+
+Result:
+<p id="child3-1">Nội dung 3-1</p>
+<p id="child3-2">Nội dung 3-2</p>
+

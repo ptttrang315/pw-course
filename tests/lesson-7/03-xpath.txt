@@ -1,0 +1,100 @@
+ancestor
+1. XPath: //div[@id='child1']/ancestor::div
+
+HTML:
+
+<div id="grandparent1">
+    <div id="parent1">
+        <div id="child1">Nội dung 1</div>
+    </div>
+</div>
+
+Result:
+<div id="grandparent1">
+<div id="parent1">
+
+==============================================
+2. XPath: //span[@id='child2']/ancestor::div
+
+HTML:
+
+<div id="great-grandparent2">
+    <div id="grandparent2">
+        <div id="parent2">
+            <span id="child2">Nội dung 2</span>
+        </div>
+    </div>
+</div>
+
+Result:
+<div id="great-grandparent2">
+<div id="grandparent2">
+<div id="parent2">
+
+==============================================
+3. XPath: //p[@id='child3']/ancestor::div
+
+HTML:
+
+<div id="grandparent3">
+    <div id="parent3">
+        <p id="child3">Nội dung 3</p>
+    </div>
+</div>
+
+Result:
+<div id="grandparent3">
+<div id="parent3">
+
+==============================================
+
+ancestor-or-self
+1. XPath: //div[@id='child1']/ancestor-or-self::div
+
+HTML:
+
+<div id="grandparent1">
+    <div id="parent1">
+        <div id="child1">Nội dung 1</div>
+    </div>
+</div>
+
+Result:
+<div id="grandparent1">
+<div id="parent1">
+<div id="child1">Nội dung 1</div>
+
+==============================================
+2. XPath: //span[@id='child2']/ancestor-or-self::div
+
+HTML:
+
+<div id="great-grandparent2">
+    <div id="grandparent2">
+        <div id="parent2">
+            <span id="child2">Nội dung 2</span>
+        </div>
+    </div>
+</div>
+
+Result:
+<div id="great-grandparent2">
+<div id="grandparent2">
+<div id="parent2">
+
+==============================================
+3. XPath: //p[@id='child3']/ancestor-or-self::div
+
+HTML:
+
+<div id="grandparent3">
+    <div id="parent3">
+        <p id="child3">Nội dung 3</p>
+    </div>
+</div>
+
+Result:
+<div id="grandparent3">
+<div id="parent3">
+
+
